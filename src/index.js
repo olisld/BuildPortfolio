@@ -21,7 +21,7 @@ import Footer from './componnent/Footer';
 import CalculetteImmoProject from './pages/page_projet/calculette_immo';
 import BFProject from './pages/page_projet/Bienvenue_formation';
 import ApplePage from './pages/page_projet/Apple';
-
+import Portfolio from './pages/page_projet/Portfolio';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -40,6 +40,7 @@ root.render(
         <Route path='Apple'element={<ApplePage/>}/>
         <Route path='Calculette' element={<CalculetteImmoProject/>}/>
         <Route path='Bienvenue_formation' element={<BFProject/>}/>
+        <Route path='/Portfolio' element={<Portfolio/>}/>
       </Routes>
       <Footer/>
     </Router>
