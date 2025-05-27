@@ -1,20 +1,15 @@
 import styled from "styled-components"
-// Photo
 
-import ScreenPortfolio from "../../../assets/Screen_Projet/ScreenPortfolio.png"
-import LogoHtml from "../../../assets/logo_langage/HTML5_logo_and_wordmark.svg.png"
-import LogoCss from "../../../assets/logo_langage/CSS3_logo_and_wordmark.svg.png"
-import LogoVSCode from "../../../assets/logo_langage/visual-studio-code-2019.png"
-import LogoOvh from "../../../assets/logo_langage/OVH.PA-635db442.png"
-import LogoReactJS from "../../../assets/logo_langage/React-icon.svg.png"
-import GanttPortfolio from "../../../assets/DiagrammeGannt/GanttPortfolio.png"
+// photo
+import ScreenGMAO from "../../../assets/Screen_Projet/ScreenGMAO.png"
+import LogoAqManager from "../../../assets/logo_projet/logo-aq-manager-gmao.jpg"
+import LogoExcel from "../../../assets/logo_langage/Excel-365Excel-2016-2019-Logo.png"
 
-// Componnent
-import ExpandableMenuDocumentation from "../../../componnent/ExpandableMenueDocumentation"
+// composant
+import ExpandableMenuDocumentation from "../../../componnent/ExpandableMenueDocumentation" 
 
-// Section Documentation
-import TaskSectionPortfolio from "../../../componnent/TaskSection/TaskPortfolio"
-import ImageSectionPortfolio from "../../../componnent/ImagesSectionDocumentation/DocumentationPortfolio"
+// documentation
+import TaskSectionGmao from "../../../componnent/TaskSection/TaskGmao"
 const Background = styled.div`
     background-color: #2C3E50;
     color: black;
@@ -37,6 +32,7 @@ const Title = styled.h1`
     font-size: 2.5rem;
     color: white;
     margin-bottom: 20px;
+    text-align:center;
 `;
 
 const StyledParagraph = styled.p`
@@ -47,7 +43,6 @@ const StyledParagraph = styled.p`
     margin: 20px 0 40px;
     padding: 0 15%;
 `;
-
 const ContainerDivOutilsLanguage = styled.div`
     display: flex;
     gap: 30px;
@@ -98,7 +93,6 @@ const PaddingListe = styled.ul`
     list-style-type: none;
     width: 100%;
 `;
-
 const DisplayListe = styled.li`
     display:flex;
     align-items: center; /* Centre les éléments verticalement */
@@ -207,37 +201,40 @@ const StyledCompetenceContainer = styled.div`
   flex-direction: column;
   gap: 20px;
 `;
-
-function Portfolio(){
-    
+function GMAO(){
     return(
         <Background>
-            <Title>Portfolio</Title>
-            <ImgCalculette src={ScreenPortfolio} alt=""/>
+            <Title>Optimisation et enrichissement de la GMAO AQManager pour la STEP de la baumette Angers</Title>
+            <ImgCalculette src={ScreenGMAO} alt=""/>
             <StyledParagraph>
-                Ce portfolio est une application web réalisée avec React.js, conçue pour mettre en avant mes compétences, projets et réalisations. L'application propose une interface moderne et intuitive, permettant une navigation fluide entre les différentes sections. Chaque partie du portfolio est pensée pour répondre aux besoins des recruteurs et collaborateurs, tout en reflétant mon identité professionnelle.
+                À Angers, la STEP (Station d'Épuration) de la Baumette joue un rôle essentiel dans le traitement des eaux usées de la région.
+                Elle contribue activement à la protection de l'environnement en améliorant la qualité de l'eau avant son retour dans le milieu naturel. 
+                Afin de garantir l'entretien et le bon fonctionnement de ses équipements, la station utilise le logiciel AQManager, une solution de GMAO (Gestion de la Maintenance Assistée par Ordinateur). 
+                Cet outil permet d'organiser, de suivre et d'optimiser l'ensemble des opérations de maintenance réalisées sur le site.
             </StyledParagraph>
             <ContainerDivOutilsLanguage>
                 <DivSection>
-                    <SectionTitle>Langages utilisés</SectionTitle>
+                    <SectionTitle>Objectifs de la mission</SectionTitle>
                     <LogoContainer>
-                        <LogoLangage src={LogoHtml} alt="HTML5" />
-                        <LogoLangage src={LogoCss} alt="CSS3" />
-                        <LogoLangage src={LogoReactJS} alt="JavaScript"/>
+                        <ul>
+                            <li>Rendre l’application plus simple, intuitive et complète pour les utilisateurs Veolia de STEP de la Baumette.</li>
+                            <li>Mettre à jour et enrichir les données historiques de maintenance.</li>
+                        </ul>
                     </LogoContainer>
+
                 </DivSection>
                 <DivSection>
                     <SectionTitle>Outils</SectionTitle>
                     <PaddingListe>
                         <DisplayListe>
-                            <ListeTitre>IDE:</ListeTitre>
-                            <ListeTexte>VS Code</ListeTexte>
-                            <TinyLogo src={LogoVSCode} alt="VS Code" />
+                            <ListeTitre>Logiciel GMAO:</ListeTitre>
+                            <ListeTexte>AqMAnager</ListeTexte>
+                            <TinyLogo src={LogoAqManager} alt="VS Code" />
                         </DisplayListe>
                         <DisplayListe>
-                            <ListeTitre>Hébergement:</ListeTitre>
-                            <ListeTexte>OVH</ListeTexte>
-                            <TinyLogo src={LogoOvh} alt="OVH" />
+                            <ListeTitre>Importation de donnée:</ListeTitre>
+                            <ListeTexte>Microsoft Excel</ListeTexte>
+                            <TinyLogo src={LogoExcel} alt="OVH" />
                         </DisplayListe>
                     </PaddingListe>
                 </DivSection>
@@ -247,36 +244,27 @@ function Portfolio(){
                 <h2>
                     Lien utile
                 </h2>
-                
-                <a href="https://github.com/olisld/Portfolio.git" target="blank">Repository Github</a>
-                <a href="https://portfolio.oliviersoulard.com" target="blank">Site en ligne</a>
-                 
-                
-                
+                <a href="https://www.aqmanager.com/" target="blank">Site d'AqManager</a>                
             </DivLink>
             <StyledCompetenceContainer>
                 <h2>Compétences associées</h2>
                 <CompetenceCard>
-                    <h5>Mettre à disposition des utilisateurs un service informatique</h5>
+                    <h5>Gérer le patrimoine informatique :</h5>
                     <ul>
-                        <li>Déployer un service</li>
-                        <li>Réaliser les tests d’intégration et d’acceptation d’un service</li>
+                        <li>Mettre en place et vérifier les niveaux d’habilitation associés à un service</li>
                     </ul>
                 </CompetenceCard>
 
                 <CompetenceCard>
-                    <h5>Organiser son développement professionnel</h5>
+                    <h5>Répondre aux incidents et aux demandes d’assistance et d’évolution :</h5>
                     <ul>
-                        <li>Mettre en place son environnement d’apprentissage personnel</li>
-                        <li>Développer son projet professionnel</li>
+                        <li>Traiter des demandes concernant les applications</li>
                     </ul>
                 </CompetenceCard>
-
                 <CompetenceCard>
-                    <h5>Travailler en mode projet</h5>
+                    <h5>Mettre à disposition des utilisateurs un service informatique :</h5>
                     <ul>
-                        <li>Analyser les objectifs et les modalités d’organisation d’un projet</li>
-                        <li>Planifier les activités</li>
+                        <li>Accompagner les utilisateurs dans la mise en place d’un service</li>
                     </ul>
                 </CompetenceCard>
             </StyledCompetenceContainer>
@@ -285,15 +273,13 @@ function Portfolio(){
                 content=""
                 customSection={
                     <>
-                        <TaskSectionPortfolio/>
-                        <ImageSectionPortfolio images={GanttPortfolio}/>
+                        <TaskSectionGmao/>
                     </>
                 }
             
-            
             />
-
         </Background>
+
     )
 }
-export default Portfolio
+export default GMAO

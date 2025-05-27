@@ -103,7 +103,24 @@ const MissionsList = styled.ul`
     color: #bdc3c7;
   }
 `;
+const MissionBlock = styled.div`
+  margin: 30px 0;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.03); /* léger contraste */
+  border-left: 4px solid #1abc9c; /* couleur subtile pour la séparation */
+  border-radius: 8px;
+`
 
+const MissionTitle = styled.h4`
+  margin-bottom: 10px;
+  color: #ecf0f1;
+`
+
+const MissionParagraph = styled.p`
+  color: white;
+  text-align: left !important;
+  margin-bottom: 10px;
+`
 // Composant principal
 function Entreprise() {
   return (
@@ -189,21 +206,29 @@ function Entreprise() {
 
       <Section>
         <h3>Mes Missions</h3>
-        <MissionsList>
-          <li>
-            La STEP de la Baumette Angers appartient à ALM (Angers Loire Métropole) et est exploitée par Veolia Eau.
-          </li>
-          <li>ALM est donc le client de Veolia.</li>
-          <li>
-            Ma mission principale au cœur de la station était d'étoffer le logiciel de GMAO (Gestion de la Maintenance Assistée par Ordinateur) qui avait été abandonné depuis 5 ans.
-          </li>
-          <li>
-            Les tâches que je réalisais allaient de l'import des renouvellements réalisés ces 5 dernières années à la mise en place de préventif avec une fréquence d'apparition permettant une organisation plus automatisée pour les agents de terrain de la station.
-          </li>
-          <li>
-            Lors de la deuxième année d'alternance, j'avais complètement pris en main le logiciel et ai donc discuté avec mon tuteur de missions différentes que je pouvais réaliser. De là est venue l'idée de faire un site web permettant à la station d'exister de manière digitale.
-          </li>
-        </MissionsList>
+        <MissionBlock>
+          <MissionTitle>🛠️ GMAO – Relancer AQ Manager</MissionTitle>
+          <MissionParagraph>
+            À mon arrivée, le logiciel AQ Manager n’était plus utilisé depuis cinq ans. Ma mission principale a été de le remettre en service, de le structurer et de l’adapter aux besoins de l’équipe de maintenance.
+          </MissionParagraph>
+          <MissionsList>
+            <li>Importation des renouvellements des 5 dernières années</li>
+            <li>Planification d’actions préventives automatisées (fréquence adaptée)</li>
+            <li>Optimisation de la base d’équipements pour mieux anticiper les remplacements</li>
+          </MissionsList>
+        </MissionBlock>
+
+        <MissionBlock>
+          <MissionTitle>🌐 Création d’un site pour la STEP</MissionTitle>
+          <MissionParagraph>
+            En 2ᵉ année, après avoir acquis une bonne maîtrise du logiciel GMAO, j’ai proposé à mon tuteur de développer un site web afin de donner à la station une visibilité digitale.
+          </MissionParagraph>
+          <MissionsList>
+            <li>Présentation informative de la STEP de la Baumette</li>
+            <li>Intégration d’un forum d’échange et de questions-réponses</li>
+            <li>Connexion à une base de données pour la modération et la gestion des contenus</li>
+          </MissionsList>
+        </MissionBlock>
       </Section>
     </StyledFullPage>
   );

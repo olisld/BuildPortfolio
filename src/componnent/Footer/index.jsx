@@ -51,7 +51,8 @@ const StyledLi=styled.li`
     color:white;
 `
 const StyledLink=styled(Link)`
-    margin-right:10px
+    margin-right:10px;
+    color:white;
 
 `
 function Footer(){
@@ -71,12 +72,12 @@ function Footer(){
             <ContainerReseau>
                 <StyledLink to='https://www.linkedin.com/in/olivier-soulard-b56a87281/'><LinkedinStyle src={Linkedin} alt="logo"/></StyledLink>
                 <StyledLink to='https://github.com/olisld/projet'><GitubStyle src={Github} alt="logo"/></StyledLink>
-                <StyledLink to='/CV'>CV</StyledLink>
+
             </ContainerReseau>
             <div>
                 <StyleList>
                     <StyledLi>Designed By Olivier Soulard</StyledLi>
-                    <StyledLi>mention légal</StyledLi>
+                    <StyledLi><StyledLink to='/mention_legal'>mention légal</StyledLink></StyledLi>
                 </StyleList>
             </div>
         </ContainerFooter>

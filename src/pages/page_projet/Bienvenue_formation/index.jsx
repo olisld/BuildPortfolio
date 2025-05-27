@@ -31,6 +31,13 @@ import MPD from "../../../assets/Documentation_base_de_donnée/MPDBienvenueForma
 
 import TableauFonctionalité from "../../../assets/Tableau_de_fonctionalité_Bienvenue_formation.png"
 import PlanDeTest from "../../../assets/plan_de_test_bienvenue_formation.png"
+import DiagrammeGant from '../../../assets/DiagrammeGannt/Gantt_Bienvenue.png'
+
+// Section cahier des charges + taches
+import TaskSectionBienvenue from "../../../componnent/TaskSection/TaskSectionBienvenue"
+import CahierDesChargesBienvenue from "../../../componnent/CahhierDesCharges/CahierBienvenue"
+import ImageSectionBienvenue from "../../../componnent/ImagesSectionDocumentation/DocumentationBienvenue"
+
 const Background = styled.div`
     background-color:#34495E;
     color:black;
@@ -224,6 +231,7 @@ function BFProject(){
     ]
 
     const DocuImages=[
+        DiagrammeGant,
         TableauFonctionalité,
         PlanDeTest
     ]
@@ -274,7 +282,7 @@ function BFProject(){
                 </h2>
                 
                 <a href="https://github.com/olisld/Bienvenue_formation.git">Repository Github</a>
-                <a href="bienvenueformation.oliviersoulard.com">Site Bienvenue formation</a> 
+                <a href="https://bienvenueformation.oliviersoulard.com">Site Bienvenue formation</a> 
                 
                 
             </DivLink>
@@ -298,7 +306,7 @@ function BFProject(){
                 </CompetenceCard>
 
                 <CompetenceCard>
-                    <h5>Organiser son développement personnel</h5>
+                    <h5>Organiser son développement professionnel</h5>
                     <ul>
                         <li>Mettre en place son environnement d’apprentissage personnel</li>
                         <li>Développer son projet professionnel</li>
@@ -317,7 +325,13 @@ function BFProject(){
             <ExpandableMenuDocumentation
                 title="Documentation"
                 content=""
-                images={DocuImages}
+                customSection={
+                    <>
+                        <TaskSectionBienvenue/>
+                        <CahierDesChargesBienvenue/>
+                        <ImageSectionBienvenue images={DocuImages}/>
+                    </>
+                }
             />
             <ExpandableMenu
                 title="Diagramme UML"

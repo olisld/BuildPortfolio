@@ -1,20 +1,37 @@
 import styled from "styled-components"
-// Photo
 
-import ScreenPortfolio from "../../../assets/Screen_Projet/ScreenPortfolio.png"
+// photo
+import ScreenStep from "../../../assets/Screen_Projet/Screen-station-epuration.png"
 import LogoHtml from "../../../assets/logo_langage/HTML5_logo_and_wordmark.svg.png"
 import LogoCss from "../../../assets/logo_langage/CSS3_logo_and_wordmark.svg.png"
 import LogoVSCode from "../../../assets/logo_langage/visual-studio-code-2019.png"
 import LogoOvh from "../../../assets/logo_langage/OVH.PA-635db442.png"
 import LogoReactJS from "../../../assets/logo_langage/React-icon.svg.png"
-import GanttPortfolio from "../../../assets/DiagrammeGannt/GanttPortfolio.png"
+import LogoFirebase from "../../../assets/logo_langage/logoFirebase.png"
+//image documentation
+import GanttStep from "../../../assets/DiagrammeGannt/DIagrammeGant.png"
+import PlandeTest from "../../../assets/PlandeTestStep.png"
 
-// Componnent
-import ExpandableMenuDocumentation from "../../../componnent/ExpandableMenueDocumentation"
+// composant
+import ExpandableMenuDocumentation from "../../../componnent/ExpandableMenueDocumentation" 
+import ExpandableMenueBDD from "../../../componnent/ExpendableMenue2"
 
-// Section Documentation
-import TaskSectionPortfolio from "../../../componnent/TaskSection/TaskPortfolio"
-import ImageSectionPortfolio from "../../../componnent/ImagesSectionDocumentation/DocumentationPortfolio"
+// documentation
+import TaskSectionStep from "../../../componnent/TaskSection/TaskStep"
+import CahierDesChargesBaumette from "../../../componnent/CahhierDesCharges/CahierStep"
+import ImageSectionStep from "../../../componnent/ImagesSectionDocumentation/DocumentationStep"
+
+// Documentation UML
+
+import UMLContext from "../../../assets/Diagramme-Uml/Step/DiagrammedecontexteStep.drawio.png"
+import UMLClasse from "../../../assets/Diagramme-Uml/Step/DiagrammeClasseStep.drawio.png"
+import UMLUser from "../../../assets/Diagramme-Uml/Step/UseCaseStepAngers.drawio.png"
+
+// Documentation Base de donnée
+import DictionnairedeDonnée from "../../../assets/Documentation_base_de_donnée/Step/DictionnairedeDonnéeStep.png"
+import MCDStep from "../../../assets/Documentation_base_de_donnée/Step/MCDStep.drawio.png"
+import MLDStep from "../../../assets/Documentation_base_de_donnée/Step/MLDStep.png"
+
 const Background = styled.div`
     background-color: #2C3E50;
     color: black;
@@ -47,7 +64,6 @@ const StyledParagraph = styled.p`
     margin: 20px 0 40px;
     padding: 0 15%;
 `;
-
 const ContainerDivOutilsLanguage = styled.div`
     display: flex;
     gap: 30px;
@@ -98,7 +114,6 @@ const PaddingListe = styled.ul`
     list-style-type: none;
     width: 100%;
 `;
-
 const DisplayListe = styled.li`
     display:flex;
     align-items: center; /* Centre les éléments verticalement */
@@ -207,15 +222,34 @@ const StyledCompetenceContainer = styled.div`
   flex-direction: column;
   gap: 20px;
 `;
+function StepSite(){
 
-function Portfolio(){
+    const DataUML=[
+        {title:"Diagramme de contexte",src:UMLContext},
+        {title:"Diagramme de classe",src:UMLClasse},
+        {title:"Diagramme utilisateur",src:UMLUser}
+    ]
+
+    const DataBDD=[
+        {title:"Dictionnaire de données",src:DictionnairedeDonnée},
+        {title:"Model Conceptuel de données ",src:MCDStep},
+        {title:"Model Logique de données ",src:MLDStep}
+    ]
+    const DocuImages=[
+        GanttStep,
+        PlandeTest
+    ]
+        
     
+
     return(
         <Background>
-            <Title>Portfolio</Title>
-            <ImgCalculette src={ScreenPortfolio} alt=""/>
+            <Title>Site de la station d’épuration de la Baumette</Title>
+            <ImgCalculette src={ScreenStep} alt=""/>
             <StyledParagraph>
-                Ce portfolio est une application web réalisée avec React.js, conçue pour mettre en avant mes compétences, projets et réalisations. L'application propose une interface moderne et intuitive, permettant une navigation fluide entre les différentes sections. Chaque partie du portfolio est pensée pour répondre aux besoins des recruteurs et collaborateurs, tout en reflétant mon identité professionnelle.
+                Cette application web, développée avec React.js, a été réalisée dans le cadre de mon alternance chez Veolia pour le client Angers Loire Métropole. 
+                Elle a pour but d'informer sur la station d'épuration de la Baumette et de proposer un espace de discussion dédié aux visiteurs et professionnels. 
+                Conçue en autonomie avec l'appui de mon tuteur et de l'équipe communication, l'application associe clarté, accessibilité et interaction.
             </StyledParagraph>
             <ContainerDivOutilsLanguage>
                 <DivSection>
@@ -239,6 +273,11 @@ function Portfolio(){
                             <ListeTexte>OVH</ListeTexte>
                             <TinyLogo src={LogoOvh} alt="OVH" />
                         </DisplayListe>
+                        <DisplayListe>
+                            <ListeTitre>Base de donnée:</ListeTitre>
+                            <ListeTexte>Firebase</ListeTexte>
+                            <TinyLogo src={LogoFirebase} alt="OVH" />
+                        </DisplayListe>
                     </PaddingListe>
                 </DivSection>
             </ContainerDivOutilsLanguage>
@@ -248,8 +287,8 @@ function Portfolio(){
                     Lien utile
                 </h2>
                 
-                <a href="https://github.com/olisld/Portfolio.git" target="blank">Repository Github</a>
-                <a href="https://portfolio.oliviersoulard.com" target="blank">Site en ligne</a>
+                <a href="https://github.com/olisld/STEPLaBaumetteAngers.git" target="blank">Repository Github</a>
+                <a href="https://steplabaumetteangers.oliviersoulard.com." target="blank">Site en ligne</a>
                  
                 
                 
@@ -260,7 +299,6 @@ function Portfolio(){
                     <h5>Mettre à disposition des utilisateurs un service informatique</h5>
                     <ul>
                         <li>Déployer un service</li>
-                        <li>Réaliser les tests d’intégration et d’acceptation d’un service</li>
                     </ul>
                 </CompetenceCard>
 
@@ -271,9 +309,21 @@ function Portfolio(){
                         <li>Développer son projet professionnel</li>
                     </ul>
                 </CompetenceCard>
-
                 <CompetenceCard>
-                    <h5>Travailler en mode projet</h5>
+                    <h5>Répondre aux incidents et aux demandes d’assistance et d’évolution :</h5>
+                    <ul>
+                        <li>Collecter, suivre et orienter des demande</li>
+                        <li>Traiter des demandes concernant les applications</li>
+                    </ul>
+                </CompetenceCard>
+                <CompetenceCard>
+                    <h5>Développer la présence en ligne de l’organisation :</h5>
+                    <ul>
+                        <li>Participer à l’évolution d’un site Web exploitant les données de l’organisation.</li>
+                    </ul>
+                </CompetenceCard>
+                <CompetenceCard>
+                    <h5>Travailler en mode projet :</h5>
                     <ul>
                         <li>Analyser les objectifs et les modalités d’organisation d’un projet</li>
                         <li>Planifier les activités</li>
@@ -285,15 +335,26 @@ function Portfolio(){
                 content=""
                 customSection={
                     <>
-                        <TaskSectionPortfolio/>
-                        <ImageSectionPortfolio images={GanttPortfolio}/>
+                        <TaskSectionStep/>
+                        <CahierDesChargesBaumette/>
+                        <ImageSectionStep images={DocuImages}/>
                     </>
+
                 }
             
-            
             />
-
+            <ExpandableMenueBDD
+                title="Diagramme UML"
+                content="J'ai utilisé la modélisation UML pour la documentation du site,voici les diagrammes:"
+                images={DataUML}
+            />
+            <ExpandableMenueBDD
+                title="Modelisation base de donnée"
+                content="J'ai realisé la documentation de la base de donnée  en utilisant la methode merise. J'ai utilisé des outils tels que draw io et mysql workbench"
+                images={DataBDD}
+            />
         </Background>
+
     )
 }
-export default Portfolio
+export default StepSite

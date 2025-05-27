@@ -1,20 +1,19 @@
 import styled from "styled-components"
-// Photo
 
-import ScreenPortfolio from "../../../assets/Screen_Projet/ScreenPortfolio.png"
+// Photo
+import ScreenLaMaisonJungle from "../../../assets/Screen_Projet/Screen_la_maison_Jungle.png"
 import LogoHtml from "../../../assets/logo_langage/HTML5_logo_and_wordmark.svg.png"
 import LogoCss from "../../../assets/logo_langage/CSS3_logo_and_wordmark.svg.png"
 import LogoVSCode from "../../../assets/logo_langage/visual-studio-code-2019.png"
 import LogoOvh from "../../../assets/logo_langage/OVH.PA-635db442.png"
 import LogoReactJS from "../../../assets/logo_langage/React-icon.svg.png"
-import GanttPortfolio from "../../../assets/DiagrammeGannt/GanttPortfolio.png"
-
-// Componnent
+// componnent
 import ExpandableMenuDocumentation from "../../../componnent/ExpandableMenueDocumentation"
 
-// Section Documentation
-import TaskSectionPortfolio from "../../../componnent/TaskSection/TaskPortfolio"
-import ImageSectionPortfolio from "../../../componnent/ImagesSectionDocumentation/DocumentationPortfolio"
+// documentation
+import TaskSectionLaMaisonJungle from "../../../componnent/TaskSection/TaskLaMaisonJungle"
+import DocumentationUtilisateurMaisonJungle from "../../../componnent/DocumentaionUtilisateur/DocumentationUtilisateurLaMaisonJungle"
+
 const Background = styled.div`
     background-color: #2C3E50;
     color: black;
@@ -47,7 +46,6 @@ const StyledParagraph = styled.p`
     margin: 20px 0 40px;
     padding: 0 15%;
 `;
-
 const ContainerDivOutilsLanguage = styled.div`
     display: flex;
     gap: 30px;
@@ -98,7 +96,6 @@ const PaddingListe = styled.ul`
     list-style-type: none;
     width: 100%;
 `;
-
 const DisplayListe = styled.li`
     display:flex;
     align-items: center; /* Centre les éléments verticalement */
@@ -207,15 +204,16 @@ const StyledCompetenceContainer = styled.div`
   flex-direction: column;
   gap: 20px;
 `;
-
-function Portfolio(){
-    
+function LamaisonJungle(){
     return(
+
         <Background>
-            <Title>Portfolio</Title>
-            <ImgCalculette src={ScreenPortfolio} alt=""/>
+            <Title>La maison Jungle</Title>
+            <ImgCalculette src={ScreenLaMaisonJungle} alt=""/>
             <StyledParagraph>
-                Ce portfolio est une application web réalisée avec React.js, conçue pour mettre en avant mes compétences, projets et réalisations. L'application propose une interface moderne et intuitive, permettant une navigation fluide entre les différentes sections. Chaque partie du portfolio est pensée pour répondre aux besoins des recruteurs et collaborateurs, tout en reflétant mon identité professionnelle.
+                Le projet La Maison Jungle a été réalisé en dehors de ma formation, en m'appuyant sur les cours React JS proposés par OpenClassrooms. Ce projet m’a permis de renforcer mes compétences en React et de me familiariser avec la gestion des composants, des états et des props.
+                
+                L’application, qui simule une boutique de plantes, propose une liste d’articles avec un système de panier interactif, offrant ainsi une expérience utilisateur fluide et dynamique.
             </StyledParagraph>
             <ContainerDivOutilsLanguage>
                 <DivSection>
@@ -248,8 +246,7 @@ function Portfolio(){
                     Lien utile
                 </h2>
                 
-                <a href="https://github.com/olisld/Portfolio.git" target="blank">Repository Github</a>
-                <a href="https://portfolio.oliviersoulard.com" target="blank">Site en ligne</a>
+                <a href="https://github.com/olisld/La-maison-jungle.git" target="blank">Repository Github</a>
                  
                 
                 
@@ -260,7 +257,6 @@ function Portfolio(){
                     <h5>Mettre à disposition des utilisateurs un service informatique</h5>
                     <ul>
                         <li>Déployer un service</li>
-                        <li>Réaliser les tests d’intégration et d’acceptation d’un service</li>
                     </ul>
                 </CompetenceCard>
 
@@ -268,15 +264,6 @@ function Portfolio(){
                     <h5>Organiser son développement professionnel</h5>
                     <ul>
                         <li>Mettre en place son environnement d’apprentissage personnel</li>
-                        <li>Développer son projet professionnel</li>
-                    </ul>
-                </CompetenceCard>
-
-                <CompetenceCard>
-                    <h5>Travailler en mode projet</h5>
-                    <ul>
-                        <li>Analyser les objectifs et les modalités d’organisation d’un projet</li>
-                        <li>Planifier les activités</li>
                     </ul>
                 </CompetenceCard>
             </StyledCompetenceContainer>
@@ -285,15 +272,15 @@ function Portfolio(){
                 content=""
                 customSection={
                     <>
-                        <TaskSectionPortfolio/>
-                        <ImageSectionPortfolio images={GanttPortfolio}/>
+                        <TaskSectionLaMaisonJungle/>
+                        <DocumentationUtilisateurMaisonJungle/>
                     </>
+
                 }
             
-            
             />
-
         </Background>
+
     )
 }
-export default Portfolio
+export default LamaisonJungle

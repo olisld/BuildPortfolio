@@ -22,6 +22,11 @@ import CalculetteImmoProject from './pages/page_projet/calculette_immo';
 import BFProject from './pages/page_projet/Bienvenue_formation';
 import ApplePage from './pages/page_projet/Apple';
 import Portfolio from './pages/page_projet/Portfolio';
+import LamaisonJungle from './pages/page_projet/La_maison_jungle';
+import ShinyAgency from './pages/page_projet/ShinyAgency';
+import GMAO from './pages/page_projet/GMAO';
+import StepSite from './pages/page_projet/STEPsite';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -41,6 +46,10 @@ root.render(
         <Route path='Calculette' element={<CalculetteImmoProject/>}/>
         <Route path='Bienvenue_formation' element={<BFProject/>}/>
         <Route path='/Portfolio' element={<Portfolio/>}/>
+        <Route path='/LamaisonJungle' element={<LamaisonJungle/>}/>
+        <Route path='/ShinyAgency' element={<ShinyAgency/>}/>
+        <Route path='/GMAO' element={<GMAO/>}/>
+        <Route path='/STEP'element={<StepSite/>} />
       </Routes>
       <Footer/>
     </Router>

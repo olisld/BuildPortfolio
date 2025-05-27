@@ -1,169 +1,197 @@
-import styled from "styled-components"
-import { Link } from "react-router-dom"
-// Import de Logo
-import LogoApple from "../../assets/logo_projet/Apple-logo.png"
-import LogoCalculetteImo from "../../assets/logo_projet/immo-calculette-logo2.png"
-import LogoBienvenueFormation from "../../assets/logo_projet/bienvenueformationLogo.png"
-import LogoMaisonJungle from "../../assets/logo_projet/Logo_Maison_jungle.png"
-import LogoShinyAgency from "../../assets/logo_projet/logo.svg"
-// import de screen des appli
-import ScreenApple from "../../assets/Screen_Projet/Screen_Apple_Page.png"
-import ScreenCalcImmo from "../../assets/Screen_Projet/Screen_calculatrice_immo.png"
-import ScreenBienvenueformation from "../../assets/Screen_Projet/Screen_Bienvenue_formation.png"
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+// Logos
+import LogoApple from "../../assets/logo_projet/Apple-logo.png";
+import LogoCalculetteImo from "../../assets/logo_projet/immo-calculette-logo2.png";
+import LogoBienvenueFormation from "../../assets/logo_projet/bienvenueformationLogo.png";
+import LogoMaisonJungle from "../../assets/logo_projet/Logo_Maison_jungle.png";
+import LogoShinyAgency from "../../assets/logo_projet/logo.svg";
+import LogoPortfolio from "../../assets/logo_projet/logoPortfolio.png"
+import LogoGMAO from "../../assets/logo_projet/logo-aq-manager-gmao.jpg"
+import LogoStep from "../../assets/logo_projet/StepLogo.png"
+// Screens
+import ScreenApple from "../../assets/Screen_Projet/Screen_Apple_Page.png";
+import ScreenCalcImmo from "../../assets/Screen_Projet/Screen_calculatrice_immo.png";
+import ScreenBienvenueformation from "../../assets/Screen_Projet/Screen_Bienvenue_formation.png";
+import ScreenPortfolio from "../../assets/Screen_Projet/ScreenPortfolio.png";
+import ScreenLamaisonJungle from "../../assets/Screen_Projet/Screen_la_maison_Jungle.png"
+import ScreenShinyAgency from "../../assets/Screen_Projet/Screen_Shiny_agency.png"
+import ScreenGmao from "../../assets/Screen_Projet/ScreenGMAO.png"
+import ScreenStep from "../../assets/Screen_Projet/Screen-station-epuration.png"
 
 const BackgroundContainer = styled.div`
-    background-color:#34495E;
-`
-const DivProjet = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(to bottom, #0c3e50, #2c3e50);
+  min-height: 100vh;
+  padding: 40px 20px;
+`;
 
-    &:hover {
-        transform: translateY(-5px)scale(1.50);
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-        background-color:black;
-    }
+const SectionWrapper = styled.div`
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+  padding: 0 20px;
+`;
 
-    &:hover .screen-project{
-        opacity: 1; /* Rendre visible au survol */
-        transform: scale(1); /* Réinitialiser la transformation */
-    }
-`
+const SectionTitle = styled.h1`
+  color: #ffffff;
+  font-size: 2rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid #5fa8ff;
+  padding-bottom: 10px;
+`;
 
-const LinkProject= styled(Link)`
-    text-decoration:none;
-    color:black;
-
-`
-
-
-const ImgLogo = styled.div`
-    width: 50px;
-    height:50px;
-    background-image:url(${(props)=>props.src});
-    background-size:cover;
-    background-position:center;
-    border-radius: 8px; /* Facultatif : coins arrondis */
-`
+const SectionDescription = styled.p`
+  color: #ccc;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 20px;
+`;
 
 const DisplayDivProjet = styled.div`
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+`;
 
-`
+const DivProjet = styled.div`
+  background-color: #ffffff;
+  color: #1a1a1a;
+  width: 280px;
+  height: 250px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-const ScreenProject =styled.div`
-    position: absolute; /* Permet de superposer à l'intérieur de DivProjet */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(${(props) => props.src});
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 8px;
-    opacity: 0; /* Caché par défaut */
-    transform: scale(0.9); /* Légèrement réduit pour une animation */
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none; /* Empêche toute interaction */
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-function Projets(){
+  &:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+  }
 
-    const DataProject=[
-        {title:"Integration Maquette Apple",src:LogoApple,screen:ScreenApple,link:"/Apple"},
-        {title:"Calculette Immobilière",src:LogoCalculetteImo,screen:ScreenCalcImmo,link:"/Calculette"},
-        {title:"Bienvenue Formation",src:LogoBienvenueFormation,screen:ScreenBienvenueformation,link:"/Bienvenue_formation"}
-    ];
-    const DataPersoProject=[
-        {title:"Maison Jungle",src:LogoMaisonJungle},
-        {title:"Shiny agency",src:LogoShinyAgency}
-    ]
+  h3 {
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+  }
+`;
 
-    return(
-        <BackgroundContainer>
-            {/* <h1>Projets</h1>
-            <ul>
-                <li>Intégration apple tv</li>
-                <li><a href="https://github.com/olisld/projet.git">Apple page</a>
-                </li>
-                <li>Calculatrice immobilière</li>
-                <li><a href="https://github.com/olisld/calculatrice_de_pr-t_immobilier.git">Calculatrice immobilière</a></li>    
-                <li>Projet Bienvenue formation</li>
-                <li><a href="https://github.com/olisld/Bienvenue_formation.git">Bienvenue formation</a>
-                </li>
-                <li>Projet Laravel</li>
-                <li>Aprentissage de react js en développant un site de vente de plante en react</li>
-                <li><a href="https://github.com/olisld/La-maison-jungle.git">La maison jungle</a></li>
-                <li>Approfondissement de react js en dévelopant un site de prospect une shiny agency</li>
-                <li><a href="https://github.com/olisld/Shiny-agency.git">Shiny agency</a></li>
-            </ul>
-            <h1>Side Projets</h1>
-            <ul>
-                <li>Tour de hanoi</li>
-                <li><a href="https://github.com/olisld/Tour_de_hanoi.git">Tour de hanoi</a></li>
-                <li>petits projet javascript microlead</li>
-                <li>Projet gestion d'un menu en fonction des utilisateurs</li>
-                <li></li>
-                <li></li>
-            </ul> */}
+const LinkProject = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
 
-            <h1>Projet Ecole</h1>
+const ImgLogo = styled.div`
+  width: 50px;
+  height: 50px;
+  background-image: url(${(props) => props.src});
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+`;
 
+const ScreenProject = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(${(props) => props.src});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
 
-            <DisplayDivProjet>
-                {DataProject.map((item,index)=>(
-                    <LinkProject to={item.link} key={index}>
-                        <DivProjet >
-                            <h3>{item.title}</h3>
-                            <ImgLogo src={item.src}/>
-                            <ScreenProject className="screen-project" src={item.screen}></ScreenProject>
-                        </DivProjet>
-                    </LinkProject>
-                    
-                ))}
-            </DisplayDivProjet>
+  ${DivProjet}:hover & {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+
+function Projets() {
+  const DataProject = [
+    { title: "Integration Maquette Apple", src: LogoApple, screen: ScreenApple, link: "/Apple" },
+    { title: "Calculette Immobilière", src: LogoCalculetteImo, screen: ScreenCalcImmo, link: "/Calculette" },
+    { title: "Bienvenue Formation", src: LogoBienvenueFormation, screen: ScreenBienvenueformation, link: "/Bienvenue_formation" },
+    { title: "Portfolio", src:LogoPortfolio ,screen:ScreenPortfolio, link: "/Portfolio" },
+  ];
+
+  const DataPersoProject = [
+    { title: "Maison Jungle", src: LogoMaisonJungle,link:"/LamaisonJungle",screen:ScreenLamaisonJungle },
+    { title: "Shiny agency", src: LogoShinyAgency,link:"/ShinyAgency",screen:ScreenShinyAgency },
+  ];
+  const DataProProject = [
+    {title:"GMAO",src:LogoGMAO,link:"/GMAO",screen:ScreenGmao},
+    {title:"Site de la STEP de la Baumette",src:LogoStep,link:"/STEP",screen:ScreenStep}
+    
+  ]
+
+  return (
+    <BackgroundContainer>
+      <SectionWrapper>
+        <SectionTitle>Projet École</SectionTitle>
+        <DisplayDivProjet>
+          {DataProject.map((item, index) => (
+            <LinkProject to={item.link} key={index}>
+              <DivProjet>
+                <h3>{item.title}</h3>
+                <ImgLogo src={item.src} />
+                <ScreenProject src={item.screen} />
+              </DivProjet>
+            </LinkProject>
+          ))}
+        </DisplayDivProjet>
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <SectionTitle>Projet personnel</SectionTitle>
+        <SectionDescription>
+          J'ai en dehors de la formation suivi un cours sur le langage React JS, ce qui m'a permis de réaliser les deux sites internet suivants :
+        </SectionDescription>
+        <DisplayDivProjet>
+          {DataPersoProject.map((item, index) => (
+            <LinkProject to={item.link} key={index}>
+              <DivProjet >
+                <h3>{item.title}</h3>
+                <ImgLogo src={item.src} alt="LOGO" />
+                <ScreenProject src={item.screen}/>
+              </DivProjet>
+            </LinkProject>
             
-
-            <h1>Projet personnel</h1>
-            <p>J'ai en dehors de la formation suivie un cours sur le langage React JS ce qui m'a permis de réaliser les deux sites internet suivant</p>
-            <DisplayDivProjet>
-                {DataPersoProject.map((item,index)=>(   
-                    <DivProjet key={index}>
-                        <h3>{item.title}</h3>
-                        <ImgLogo src={item.src} alt="LOGO" />
-                    </DivProjet>
-                ))}
-
-            </DisplayDivProjet>
-            <DivProjet>
-                <h3>Site de vente de plant en react</h3>
-                <ImgLogo src="" alt="LOGO" />
-            </DivProjet>
-
-            <DivProjet>
-                <h3>Site de recherche de prestataire</h3>
-                <ImgLogo src="" alt="LOGO" />
-            </DivProjet>
-
-
-        </BackgroundContainer>
-        
-
-
-
-    )
+          ))}
+        </DisplayDivProjet>
+      </SectionWrapper>
+      <SectionWrapper>
+        <SectionTitle>Projet en Entreprise</SectionTitle>
+        <SectionDescription>
+        Découvrez ici les deux principaux projets que j’ai réalisés lors de mon alternance chez Veolia, au sein de la station d’épuration de la Baumette.</SectionDescription>
+        <DisplayDivProjet>
+          {DataProProject.map((item, index) => (
+            <LinkProject to={item.link} key={index}>
+              <DivProjet>
+                <h3>{item.title}</h3>
+                <ImgLogo src={item.src} alt="LOGO" />
+                <ScreenProject src={item.screen}/>
+              </DivProjet>
+            </LinkProject>
+          ))}
+        </DisplayDivProjet>
+      </SectionWrapper>
+    </BackgroundContainer>
+  );
 }
-export default Projets
+
+export default Projets;

@@ -1,140 +1,174 @@
-import styled from "styled-components"
-import { Link } from "react-router-dom"
-import colors from "../../outils/color"
-import patrimoine from "../../assets/competences_assets/patrimoine_informatique.webp"
-import assistance from "../../assets/competences_assets/Répondre_aux_assistances_d_evolution.webp"
-import presence_en_ligne from "../../assets/competences_assets/developper_presence_en_ligne_organisation.webp"
-import projet from "../../assets/competences_assets/Mode-projet.jpg"
-import disposition from "../../assets/competences_assets/disposition_utilisateur.webp"
-import développement_professionel from "../../assets/competences_assets/développement_professionel.jpg"
-const StyledFullPage =styled.div`
-    height:100%;
-    width:100%;
-`
-const StyledFlex = styled.div`
-    display:flex;
-    justify-content:space-around;
-    flex-wrap: wrap; /* Permet de revenir à la ligne */
-    gap: 20px; /* Optionnel : Espace entre les éléments */
-`
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
-const SyledDivCompétence = styled.div`
+import LogoBienvenue from "../../assets/logo_projet/bienvenueformationLogo.png";
+import LogoPortfolio from "../../assets/logo_projet/logoPortfolio.png";
+import LogoLamaisonJungle from "../../assets/logo_projet/Logo_Maison_jungle.png";
+import LogoShinyAgency from "../../assets/logo_projet/logo.svg";
+import LogoGMAO from "../../assets/logo_projet/logo-aq-manager-gmao.jpg";
+import LogoStep from "../../assets/logo_projet/StepLogo.png";
 
-    display:flex;
-    background-color:${colors.primary};
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    width:500px;
-    height:auto;
-    margin-bottom:50px;
-    margin-top:50px;
-    border-radius:10px;
-`
-const StyledTitle = styled.h1`
-    margin:10px;
-    padding:10px;
-    color:white;
-    text-align:center;
-`
-const StyledLink =styled(Link)`
-    margin:10px;
-    padding:10px;
-    color:white;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-` 
+const Background = styled.div`
+  background-color: #0c3e50;
+  color: white;
+  min-height: 100vh;
+  padding: 40px 20px;
+`;
 
-const StyledImg = styled.img`
-    border-radius:40px;
-    height:80px;
-    width:80px;
-    transition: all 0.3s ease-in-out;
-    &:hover{
-        border-radius:10px;
-        height:100px;
-        width:100px;
-    }
-`
-const StyledLien = styled.h4`
-    display:flex;
-    justify-content:center;
-`
+const FlexWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start; /* <- IMPORTANT : évite la hauteur alignée entre cartes */
+  gap: 30px;
+  align-items: center;
+`;
 
-function Compétences(){
+const CompetenceCard = styled.div`
+  background-color: ${({ index }) => {
+    const colors = ["#ccdef4", "#fde8e1", "#ccebd6", "#f9f1d8", "#e8d5f7", "#ffe2f0"];
+    return colors[index % colors.length];
+  }};
+  color: #34495e;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 320px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-between;
+`;
 
-    return(
+const Title = styled.h2`
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 15px;
+`;
 
-        <StyledFullPage>
+const ToggleButton = styled.button`
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
-            <StyledFlex>
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
 
-                <SyledDivCompétence>
-                    <StyledTitle>Gérer le Patrimoine Informatique</StyledTitle>
-                    
-                    <StyledLink>
-                        <StyledImg src={patrimoine} alt="patrimoine informatique" />
-                        <StyledLien>Projet x</StyledLien>
-                    </StyledLink>
-                </SyledDivCompétence>
+const ProjectLink = styled(Link)`
+  color: #34495e;
+  text-decoration: none;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 
-                <SyledDivCompétence>
-                    <StyledTitle>
-                        Répondre aux incidents et aux demandes d'assistance d'évolution
-                    </StyledTitle>
-                    <StyledLink>
-                        <StyledImg src={assistance} alt="assistance" />
-                       <StyledLien>Projet c</StyledLien> 
-                    </StyledLink>
-                </SyledDivCompétence>
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 
-                <SyledDivCompétence>
-                    <StyledTitle>   
-                        Développer la présence en ligne de l'organisation
-                    </StyledTitle>
-                    
-                    <StyledLink>
-                        <StyledImg src={presence_en_ligne} alt="presence_en_ligne" />
-                        <StyledLien>Projet y</StyledLien>
-                    </StyledLink>
-                </SyledDivCompétence>
-                                                                                              
-                <SyledDivCompétence>
-                    <StyledTitle>Travailler en mode projet</StyledTitle>
-                                            
-                    <StyledLink>
-                        <StyledImg src={projet} alt="projet" />
-                        <StyledLien>Projet z</StyledLien>
-                    </StyledLink>
-                </SyledDivCompétence>
+const Logo = styled.img`
+    height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+`;
 
-                <SyledDivCompétence>
-                    <StyledTitle>
-                        Mettre à disposition des utilisateurs un servive informatique
-                    </StyledTitle>
-                    <StyledLink>
-                        <StyledImg src={disposition} alt="disposition" />
-                        <StyledLien>Projet a</StyledLien>
-                    </StyledLink>
-                </SyledDivCompétence>
+const Compétences = () => {
+  const [states, setStates] = useState([false, false, false, false, false, false]);
 
-                <SyledDivCompétence>
-                    <StyledTitle>
-                        Organiser son développement proffessionnel
-                    </StyledTitle>
-                  
-                    <StyledLink>  
-                        <StyledImg src={développement_professionel} alt="développement_professionel" />
-                        <StyledLien>Projet b</StyledLien>
-                    </StyledLink>
-                </SyledDivCompétence>
+  const toggleSection = (index) => {
+    const newStates = [...states];
+    newStates[index] = !newStates[index];
+    setStates(newStates);
+  };
 
-            </StyledFlex>
+  const sections = [
+    {
+      title: "Gérer le Patrimoine Informatique",
+      links: [
+        { to: "/Bienvenue_formation", label: "Bienvenue formation", img: LogoBienvenue },
+        { to: "/GMAO", label: "GMAO", img: LogoGMAO },
+      ],
+    },
+    {
+      title: "Répondre aux incidents et aux demandes d'assistance d'évolution",
+      links: [
+        { to: "/GMAO", label: "GMAO", img: LogoGMAO },
+        { to: "/STEP", label: "Site de la STEP", img: LogoStep },
+      ],
+    },
+    {
+      title: "Développer la présence en ligne de l'organisation",
+      links: [
+        { to: "/STEP", label: "Site de la STEP", img: LogoStep },
+      ],
+    },
+    {
+      title: "Travailler en mode projet",
+      links: [
+        { to: "/Bienvenue_formation", label: "Bienvenue formation", img: LogoBienvenue },
+        { to: "/Portfolio", label: "Portfolio", img: LogoPortfolio },
+        { to: "/STEP", label: "Site de la STEP", img: LogoStep },
+      ],
+    },
+    {
+      title: "Mettre à disposition des utilisateurs un service informatique",
+      links: [
+        { to: "/Bienvenue_formation", label: "Bienvenue formation", img: LogoBienvenue },
+        { to: "/Portfolio", label: "Portfolio", img: LogoPortfolio },
+        { to: "/LamaisonJungle", label: "La maison Jungle", img: LogoLamaisonJungle },
+        { to: "/ShinyAgency", label: "Shiny Agency", img: LogoShinyAgency },
+        { to: "/GMAO", label: "GMAO", img: LogoGMAO },
+        { to: "/STEP", label: "Site de la STEP", img: LogoStep },
+      ],
+    },
+    {
+      title: "Organiser son développement professionnel",
+      links: [
+        { to: "/Bienvenue_formation", label: "Bienvenue formation", img: LogoBienvenue },
+        { to: "/Portfolio", label: "Portfolio", img: LogoPortfolio },
+        { to: "/LamaisonJungle", label: "La maison Jungle", img: LogoLamaisonJungle },
+        { to: "/ShinyAgency", label: "Shiny Agency", img: LogoShinyAgency },
+        { to: "/STEP", label: "Site de la STEP", img: LogoStep },
+      ],
+    },
+  ];
 
-        </StyledFullPage>
-    )
-}
+  return (
+    <Background>
+      <FlexWrapper>
+        {sections.map((section, index) => (
+          <CompetenceCard key={index} index={index}>
+            <Title>{section.title}</Title>
+            <ToggleButton onClick={() => toggleSection(index)}>
+              {states[index] ? "Moins" : "Plus"}
+            </ToggleButton>
+            {states[index] && (
+              <div>
+                {section.links.map((link, i) => (
+                  <ProjectLink key={i} to={link.to} target="_blank">
+                    <Logo src={link.img} alt={link.label} />
+                    {link.label}
+                  </ProjectLink>
+                ))}
+              </div>
+            )}
+          </CompetenceCard>
+        ))}
+      </FlexWrapper>
+    </Background>
+  );
+};
 
-
-export default Compétences
+export default Compétences;

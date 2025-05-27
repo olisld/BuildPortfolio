@@ -4,14 +4,16 @@ import { useState } from "react";
 // photo
 import ArticleImage from "../../assets/Veille_Informatique/veille_informatique_ia_iot.png";
 import CyberSecurityIAImage from "../../assets/Veille_Informatique/Veille_informatique_cybersecurity_in_ia.png"
-
+import VeilleAISanté from "../../assets/Veille_Informatique/VeilleAIsantéArticle1.png"
+import VeilleAISantéArticle2 from "../../assets/Veille_Informatique/VeilleAISantéArticle2.png"
+import VeilleAISantéArticle3 from "../../assets/Veille_Informatique/VeilleAISaantéArticle3.png"
 // Logo
 import LinkedinLogo from "../../assets/linkedin-alt.svg"
 import InoreaderLogo from "../../assets/Veille_Informatique/inoreader_logo_icon_blue.png"
 import GoogleScholarLogo from "../../assets/Veille_Informatique/Google_Scholar_logo.svg.png"
 
 const Background = styled.div`
-  background-color: #2c3e50;
+  background-color: #0c3e50;
   color: white;
   width: 100%;
   min-height: 100vh;
@@ -40,7 +42,7 @@ const ArticleContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  // background-color: white;
   color: #333;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -49,10 +51,19 @@ const ArticleContainer = styled.div`
   width: 45%; /* Ajuste la largeur pour que les articles tiennent sur la même ligne */
   height: 100%; /* S'assure que les articles prennent toute la hauteur du container */
   min-height: 570px; /* Hauteur minimale pour maintenir un design cohérent */
-  // flex-grow: 1; /* Les articles prennent une hauteur égale */
-  // display: flex;
-  // flex-direction: column;
   justify-content: space-between; /* Assure que le contenu est bien réparti dans l'article */
+  background-color: ${({ topic }) => {
+    switch (topic) {
+      case "cybersecurity":
+        return " #fde8e1"; // rouge saumon clair
+      case "healthcare":
+        return " #ccebd6"; // vert menthe pâle
+      case "robotics":
+        return "	#ccdef4"; // bleu glacier clair
+      default:
+        return "white";
+    }
+  }};
 
 `;
 
@@ -247,10 +258,21 @@ const Separateur = styled.div`
   width:100%;
   justify-content:center;
   margin-bottom:40px;
+  margin-top:80px;
   h1{
-      color:#bdc3c7;
+      color:${({topic})=>{
+        switch(topic){
+          case "cybersecurity":
+            return " #b44a3a";
+          case "healthcare":
+            return " #3b7750";
+          case "robotics":
+            return " #4db8e8";
+          default:
+            return "white"
+        }
+      }}
   }
-
 `
 
 function Veille() {
@@ -294,6 +316,21 @@ function Veille() {
   const handleExpandClick6 = () => {
     setExpanded6(!expanded6);
   };
+
+  const [expanded7,setExpanded7]=useState(false);
+  const handleExpandClick7 =()=>{
+    setExpanded7(!expanded7)  
+  }
+  const [expanded8,setExpanded8]=useState(false);
+  const handleExpandClick8 =()=>{
+    setExpanded8(!expanded8)  
+  }
+
+  const [expanded9,setExpanded9]=useState(false);
+  const handleExpandClick9 =()=>{
+    setExpanded9(!expanded9)  
+  }
+
   return (
     <Background>
       <Title>Articles et Veilles Informatiques</Title>
@@ -345,12 +382,12 @@ function Veille() {
         </DivSection>
       
 
-      <Separateur>
-        <h1>Artificiel Intelligence in IOT</h1>
+      <Separateur topic="robotics">
+        <h1 >L'impact de l'IA sur les objets connectés (AIoT)</h1>
       </Separateur>
 
       <ArticlesWrapper>
-        <ArticleContainer>
+        <ArticleContainer topic="robotics">
 
           <ArticleImageStyled src={ArticleImage} alt="Article Example" />
           <ArticleTitle>
@@ -444,7 +481,7 @@ function Veille() {
           </ExpandButton>
         </ArticleContainer>
 
-        <ArticleContainer>
+        <ArticleContainer topic="robotics">
           <ArticleImageStyled src={ArticleImage} alt="Article Example" />
           
             <ArticleTitle>L'AIoT pour la Fabrication Durable</ArticleTitle>
@@ -494,13 +531,13 @@ function Veille() {
         </ArticleContainer>
       </ArticlesWrapper>
 
-      <Separateur>
-        <h1>Artificiel Intelligence in Cybersécurity</h1>
+      <Separateur topic="cybersecurity">
+        <h1 >L'impact de l'IA sur la cybersécurité</h1>
       </Separateur>
 
       <ArticlesWrapper>
 
-        <ArticleContainer>
+        <ArticleContainer topic="cybersecurity">
           <ArticleImageStyled src={CyberSecurityIAImage} alt="Article Example" />
           <ArticleTitle>
             The cat and mouse game of computer security
@@ -577,7 +614,7 @@ function Veille() {
           </ExpandButton>
         </ArticleContainer>
 
-        <ArticleContainer>
+        <ArticleContainer topic="cybersecurity">
           <ArticleImageStyled src={CyberSecurityIAImage} alt="Article Example" />
           <ArticleTitle>
             L’intelligence artificielle (IA) dans la taille du marché de la cybersécurité.
@@ -665,7 +702,7 @@ function Veille() {
           </ExpandButton>
         </ArticleContainer>
 
-        <ArticleContainer>
+        <ArticleContainer topic="cybersecurity">
           <ArticleImageStyled src={CyberSecurityIAImage} alt="Cybersecurity and AI" />
           <ArticleTitle>
             L'intelligence artificielle : Un changement de paradigme dans la cybersécurité.
@@ -750,15 +787,228 @@ function Veille() {
         </ArticleContainer>  
       </ArticlesWrapper>
 
-      <Separateur>
-        <h1>Artificiel Intelligence dans la santéy</h1>
+      <Separateur topic="healthcare">
+        <h1 >L'impact de l'IA sur le secteur de la santé</h1>
       </Separateur>
 
       <ArticlesWrapper>
-        <ArticleContainer>
-        </ArticleContainer>
-        <ArticleContainer>
+        <ArticleContainer topic="healthcare">
+          <ArticleImageStyled src={VeilleAISanté} alt="Artificial Intelligence in Healthcare" />
+          <ArticleTitle>
+            Le potentiel de l’intelligence artificielle dans le domaine de la santé
+          </ArticleTitle>
+          <ArticleDescription>
+            Cet article explore les nombreuses façons dont l’intelligence artificielle (IA) est déjà utilisée dans le secteur médical, que ce soit pour le diagnostic, la personnalisation des traitements ou l’automatisation administrative. Bien que les capacités de l’IA progressent rapidement, de nombreux défis freinent encore son adoption à grande échelle.
+          </ArticleDescription>
+          {expanded7 && (
+            <>
+              <ArticleDescription>
+                L’IA, sous ses différentes formes (apprentissage automatique, NLP, systèmes experts, robots physiques ou logiciels), est appliquée dans plusieurs domaines :
+              </ArticleDescription>
 
+              <div>
+                <SubsectionTitle>Technologies clés de l’IA en santé</SubsectionTitle>
+                <List>
+                  <li>
+                    <strong>Machine Learning & Deep Learning :</strong> utilisés pour prédire les traitements les plus adaptés (médecine de précision) et analyser les images médicales (radiomics).
+                  </li>
+                  <li>
+                    <strong>Traitement du langage naturel (NLP) :</strong> permet l’analyse de documents cliniques, la transcription automatique et les assistants conversationnels.
+                  </li>
+                  <li>
+                    <strong>Robotic Process Automation :</strong> automatise les tâches administratives (mise à jour de dossiers, traitement de factures).
+                  </li>
+                  <li>
+                    <strong>Robots chirurgicaux :</strong> améliorent la précision et la visibilité lors des interventions, tout en étant pilotés par un humain.
+                  </li>
+                </List>
+              </div>
+
+              <div>
+                <SubsectionTitle>Applications concrètes</SubsectionTitle>
+                <SubsectionText>
+                  Plusieurs entreprises développent des outils basés sur l’IA pour :
+                </SubsectionText>
+                <List>
+                  <li>
+                    <strong>Diagnostiquer des maladies complexes :</strong> par exemple, Google et Enlitic travaillent sur des algorithmes pour détecter le cancer via l’imagerie.
+                  </li>
+                  <li>
+                    <strong>Accompagner les patients :</strong> via des systèmes de recommandations personnalisées ou des rappels pour améliorer l’observance des traitements.
+                  </li>
+                  <li>
+                    <strong>Optimiser la gestion hospitalière :</strong> prédiction des réadmissions, gestion des ressources, analyse de réclamations médicales.
+                  </li>
+                </List>
+              </div>
+
+              <div>
+                <SubsectionTitle>Limites et enjeux</SubsectionTitle>
+                <SubsectionText>
+                  Malgré ses capacités prometteuses, l’intégration de l’IA dans la pratique médicale quotidienne rencontre plusieurs obstacles :
+                </SubsectionText>
+                <List>
+                  <li>
+                    <strong>Manque d’explicabilité des algorithmes :</strong> en particulier ceux basés sur le deep learning, rendant difficile l’interprétation des décisions.
+                  </li>
+                  <li>
+                    <strong>Difficultés d’intégration :</strong> peu de solutions sont compatibles avec les systèmes de dossiers médicaux existants.
+                  </li>
+                  <li>
+                    <strong>Problèmes éthiques :</strong> liés à la transparence, la vie privée, les biais algorithmiques et la responsabilité en cas d’erreur.
+                  </li>
+                </List>
+              </div>
+
+              <div>
+                <SubsectionTitle>Perspectives pour les professionnels de santé</SubsectionTitle>
+                <SubsectionText>
+                  L’IA ne devrait pas remplacer les soignants, mais les assister. Les métiers les plus exposés à l’automatisation concernent les tâches numériques (radiologie, pathologie), mais la complexité des cas et la relation humaine limitent cette substitution.
+                </SubsectionText>
+                <SubsectionText>
+                  À terme, l’IA pourra libérer du temps aux praticiens pour se concentrer sur les tâches à forte valeur humaine, comme l’empathie et la communication.
+                </SubsectionText>
+              </div>
+
+              <LinkButton
+                href="https://www.sciencedirect.com/science/article/pii/S2514664524010592"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Lire l'article complet
+              </LinkButton>
+            </>
+          )}
+          <ExpandButton onClick={handleExpandClick7}>
+            {expanded7 ? "Voir moins" : "En savoir plus"}
+          </ExpandButton>
+        </ArticleContainer>
+
+        <ArticleContainer topic="healthcare">
+          <ArticleImageStyled src={VeilleAISantéArticle2} alt="AI Breast Cancer Trial" />
+          <ArticleTitle>
+            Le NHS lance le plus grand essai mondial de diagnostic du cancer du sein par IA
+          </ArticleTitle>
+          <ArticleDescription>
+            Le système de santé britannique (NHS) entame un essai majeur pour évaluer l'efficacité de l’intelligence artificielle dans le dépistage du cancer du sein. Cette initiative pourrait transformer la manière dont les mammographies sont analysées, tout en réduisant les délais de diagnostic.
+          </ArticleDescription>
+          {expanded8 && (
+            <>
+              <ArticleDescription>
+                L’étude portera sur plus de 700 000 mammographies au Royaume-Uni, dont environ deux tiers seront analysées à l’aide de cinq types d’IA. L’objectif est de comparer leur précision à celle des radiologues.
+              </ArticleDescription>
+
+              <div>
+                <SubsectionTitle>Un système de "double lecture" repensé</SubsectionTitle>
+                <SubsectionText>
+                  Actuellement, chaque mammographie est étudiée par deux radiologues pour minimiser les erreurs. Si l’IA se révèle aussi fiable, elle pourrait remplacer l’un des deux lecteurs humains, libérant ainsi du temps pour d’autres tâches médicales.
+                </SubsectionText>
+              </div>
+
+              <div>
+                <SubsectionTitle>Un potentiel prometteur confirmé par des essais précédents</SubsectionTitle>
+                <SubsectionText>
+                  Une étude suédoise de 2023 portant sur 80 000 femmes a montré que l’IA pouvait réduire la charge de travail des radiologues de moitié, sans augmentation significative des faux positifs.
+                </SubsectionText>
+              </div>
+
+              <div>
+                <SubsectionTitle>Des enjeux de fiabilité et d’éthique</SubsectionTitle>
+                <SubsectionText>
+                  Bien que prometteuse, l’IA soulève des préoccupations, notamment sur la fiabilité des algorithmes vis-à-vis de la diversité ethnique des patientes. Une attention particulière sera portée à la conception de systèmes équitables et précis.
+                </SubsectionText>
+              </div>
+
+              <div>
+                <SubsectionTitle>Un plan national pour lutter contre le cancer</SubsectionTitle>
+                <SubsectionText>
+                  Le gouvernement britannique, via le ministère de la Santé, prévoit un plan national dédié au cancer, visant à faire du pays un leader mondial dans la détection précoce et le traitement de la maladie grâce aux nouvelles technologies.
+                </SubsectionText>
+              </div>
+
+              <LinkButton
+                href="https://www.theguardian.com/society/2024/feb/04/nhs-to-launch-worlds-biggest-trial-of-ai-breast-cancer-diagnosis"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Lire l'article complet
+              </LinkButton>
+            </>
+          )}
+          <ExpandButton onClick={handleExpandClick8}>
+            {expanded8 ? "Voir moins" : "En savoir plus"}
+          </ExpandButton>
+        </ArticleContainer>
+
+        <ArticleContainer topic="healthcare">
+          <ArticleImageStyled src={VeilleAISantéArticle3} alt="AI-Assisted Haptic Robotic Surgery" />
+          <ArticleTitle>
+            Une chirurgie robotique assistée par retour haptique et intelligence artificielle
+          </ArticleTitle>
+          <ArticleDescription>
+            L’article propose une approche innovante intégrant l’intelligence artificielle, la réalité virtuelle (VR), la réalité augmentée (AR), le retour haptique et la 5G pour révolutionner la chirurgie robotique et l’imagerie médicale à distance.
+          </ArticleDescription>
+          {expanded9 && (
+            <>
+              <ArticleDescription>
+                Le modèle vise à améliorer la visualisation des images médicales et à permettre des interventions chirurgicales à distance tout en limitant les risques d’infection et en réduisant la charge de travail des soignants.
+              </ArticleDescription>
+
+              <div>
+                <SubsectionTitle>Technologies intégrées</SubsectionTitle>
+                <List>
+                  <li>
+                    <strong>Réalité virtuelle et augmentée :</strong> permet une visualisation 3D détaillée des organes du patient pour un diagnostic plus précis.
+                  </li>
+                  <li>
+                    <strong>Retour haptique :</strong> offre au chirurgien la sensation du toucher à distance, renforçant la précision des gestes.
+                  </li>
+                  <li>
+                    <strong>5G :</strong> garantit une latence minimale et une transmission fluide des données pour les opérations en temps réel.
+                  </li>
+                  <li>
+                    <strong>Intelligence artificielle :</strong> apprend des gestes du chirurgien pour potentiellement automatiser certaines tâches.
+                  </li>
+                </List>
+              </div>
+
+              <div>
+                <SubsectionTitle>Bénéfices pour le corps médical et les patients</SubsectionTitle>
+                <SubsectionText>
+                  Cette solution technologique améliore la qualité des soins :
+                </SubsectionText>
+                <List>
+                  <li>
+                    <strong>Moins d'erreurs :</strong> grâce à une meilleure visualisation et à la précision robotique.
+                  </li>
+                  <li>
+                    <strong>Réduction des contacts physiques :</strong> limite la propagation des maladies infectieuses.
+                  </li>
+                  <li>
+                    <strong>Convalescence accélérée :</strong> grâce à des incisions plus petites et des procédures moins invasives.
+                  </li>
+                </List>
+              </div>
+
+              <div>
+                <SubsectionTitle>Perspectives futures</SubsectionTitle>
+                <SubsectionText>
+                  À l’avenir, cette technologie pourrait permettre des interventions mondiales à distance, un accès aux soins dans des zones isolées, et des consultations médicales personnalisées grâce à l’IA et au Big Data.
+                </SubsectionText>
+              </div>
+
+              <LinkButton
+                href="https://www.mdpi.com/2076-3417/13/6/3592" // Mettre l'URL officielle si disponible
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Lire l'article complet
+              </LinkButton>
+            </>
+          )}
+          <ExpandButton onClick={handleExpandClick9}>
+            {expanded9 ? "Voir moins" : "En savoir plus"}
+          </ExpandButton>
         </ArticleContainer>
       </ArticlesWrapper>
     </Background>
